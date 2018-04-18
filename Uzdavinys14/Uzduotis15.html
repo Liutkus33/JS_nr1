@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">   
+</head>
+<body>
+        <form name='forma'>
+                Metai: <input type='text' id='inputm' name='nulis'/>
+                Numeriai: <input type='text' id='inputn' name='pirmas'/>
+                Kelias(m): <input type='text' id='inputk' name='nulis'/>
+                Laikas(s): <input type='text' id='inputl' name='pirmas'/>        
+            </form>
+    <button onclick='darom()'>saugok</button>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Metai</td>
+                <td>Numeris</td>
+                <td>Laikas</td>
+                <td>Atstumas</td>
+                <td>Greitis</td>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+    <p id="demo">   </p>
+    
+    <script>
+        
+    function darom() {
+        var auto=[
+            
+        ];
+        var tekstas='';    
+        
+        
+            // if (auto[i][3] == 0){
+            //     // break;
+            //     continue;
+            // }
+            // console.log(auto[i][1]);
+            
+            var m=document.getElementById('inputm').value;
+            var n=document.getElementById('inputn').value;
+            var k=document.getElementById('inputk').value;
+            var l=document.getElementById('inputl').value;
+            auto.push(m);
+            auto.push(n);
+            auto.push(k);
+            auto.push(l);
+           tekstas = '<tr>' +
+                    stulpelis(auto[0]) +
+                    stulpelis(auto[1]) +
+                    stulpelis(auto[2]) +
+                    stulpelis(auto[3]) +                    
+                    stulpelis(auto[2] / auto[3] * 3.6) +
+            '</tr>';            
+                
+        document.querySelector('tbody').innerHTML = tekstas;
+            
+        function stulpelis(reiksme) {
+            var td='<td>' + reiksme + '</td>';
+            return td;
+
+        document.getElementById("demo").innerHTML = m;
+        document.getElementById("forma").reset();
+        }
+    }
+    </script>
+</body>
+</html>
