@@ -62,14 +62,18 @@
                 stulpelis(auto[2] / auto[3] * 3.6) +
                 '</tr>';
 
-            document.querySelector('tbody').innerHTML = tekstas;
+            document.querySelector('tbody').innerHTML += tekstas;
 
             function stulpelis(reiksme) {
                 var td = '<td>' + reiksme + '</td>';
                 return td;
 
                 document.getElementById("demo").innerHTML = m;
-                document.getElementById("forma").reset();
+                // document.getElementById("forma").reset();
+                document.getElementById('inputm').value=' ';
+                document.getElementById('inputn').value=' ';
+                document.getElementById('inputk').value=' ';
+                document.getElementById('inputl').value=' ';
             }
         }
     </script>
