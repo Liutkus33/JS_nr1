@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Uzduotis18</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    Naujas slaptažodis:
+    <input type="password" id="pass1" name="slaptazodis">
+    <br>
+    <br> 
+    Pakartokite slaptažodį:
+    <input type="password" id="pass2" name="slaptazodis2">
+    <br>
+    <br>
+    <button id="change" onclick="change()" name="keisti">Keisti slaptažodį</button>
+    <br>
+    <br>
+    <div id="divas"></div>
+    <script>
+        function change() {
+            var pw1 = document.getElementById('pass1').value;
+            var pw2 = document.getElementById('pass2').value;
+            if (pw1 === pw2) {
+                alert('Slaptažodis' + ' ' + 'keičiamas');
+                var keitimas = document.createElement('P');
+                var t = document.createTextNode("Keitimas vyksta");
+                keitimas.appendChild(t);
+                document.getElementById('divas').appendChild(keitimas);
+                document.getElementById('divas').style.margin = '99px';
+                document.getElementById('divas').style.transition = 'margin 6s ease-in';
+                document.getElementById('divas').style.fontSize = '12em';
+                document.getElementById('divas').style.transition = 'font-size 5s ease-out';
+            }
+            else {
+                alert('Slaptažodžiai' + ' ' + 'nevienodi');
+            }
+        }
+    </script>
+</body>
+
+</html>
