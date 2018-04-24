@@ -11,70 +11,78 @@
 <body>
     <form name='forma'>
         Metai:
-        <input type='text' id='inputm' name='nulis' /> 
+        <input type='text' id='inputm' name='metai' /> 
         Numeriai:
-        <input type='text' id='inputn' name='pirmas' /> 
+        <input type='text' id='inputn' name='numeriai' /> 
         Kelias(m):
-        <input type='text' id='inputk' name='nulis' /> 
+        <input type='text' id='inputk' name='kelias' /> 
         Laikas(s):
-        <input type='text' id='inputl' name='pirmas' />
+        <input type='text' id='inputl' name='laikas' />
     </form>
     <button onclick='darom()'>saugok</button>
-    <table border="1">
+    <table id="table" border="1">
         <thead>
             <tr>
                 <td>Metai</td>
                 <td>Numeris</td>
                 <td>Laikas</td>
                 <td>Atstumas</td>
-                <td>Greitis</td>
+                <td>Greitis</td>                
             </tr>
         </thead>
         <tbody>
 
         </tbody>
     </table>
-    <p id="demo"> </p>
+    <br>
+    <!-- <button onclick="editRow();">Edit Row</button> -->
+    <!-- <p id="demo"> </p> -->
 
     <script>
-
+        
         function darom() {
-            var auto = [
+           
+        
+            auto = [
 
             ];
+            auto[0]=[];
+            
             var tekstas = '';
-            // if (auto[i][3] == 0){
-            //     // break;
-            //     continue;
-            // }
+            var i=0;
             // console.log(auto[i][1]);
-
+            
             var m = document.getElementById('inputm').value;
             var n = document.getElementById('inputn').value;
             var k = document.getElementById('inputk').value;
             var l = document.getElementById('inputl').value;
-            auto.push(m);
-            auto.push(n);
-            auto.push(k);
-            auto.push(l);
+            auto[i].push(m);
+            auto[i].push(n);
+            auto[i].push(k);
+            auto[i].push(l);
             tekstas = '<tr>' +
-                stulpelis(auto[0]) +
-                stulpelis(auto[1]) +
-                stulpelis(auto[2]) +
-                stulpelis(auto[3]) +
-                stulpelis(auto[2] / auto[3] * 3.6) +
+                stulpelis(auto[i][0]) +
+                stulpelis(auto[i][1]) +
+                stulpelis(auto[i][2]) +
+                stulpelis(auto[i][3]) +
+                stulpelis(auto[i][2] / auto[i][3] * 3.6) + '<td>'+'<button id="but" onclick=edit()>asd</button>' +                                
                 '</tr>';
 
             document.querySelector('tbody').innerHTML += tekstas;
+            
+            function edit(i) {
+                document.getElementById('inputm').value=auto[i][0];
+                document.getElementById('inputn').value=auto[i][1];
+                document.getElementById('inputk').value=auto[i][2];
+                document.getElementById('inputl').value=auto[i][3];
+            }
 
             function stulpelis(reiksme) {
                 var td = '<td>' + reiksme + '</td>';
-                return td;
-
-                document.getElementById("demo").innerHTML = m;
-                
-                
+                return td;                          
+            i+=1;
             }
+            // document.getElementById("demo").innerHTML = m;
             // var form = document.getElementById("forma");
             //     form.reset();
                 // document.getElementById("forma").reset();
@@ -82,7 +90,8 @@
                 // document.getElementById('inputn').value=' ';
                 // document.getElementById('inputk').value=' ';
                 // document.getElementById('inputl').value=' ';
-        }
+            }
+        
     </script>
 </body>
 
