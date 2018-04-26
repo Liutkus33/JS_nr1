@@ -2,8 +2,7 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />    
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -19,7 +18,7 @@
         Laikas(s):
         <input type='text' id='inputl' name='laikas' />
     </form>
-    <button onclick='darom()'>saugok</button>
+    <button onclick='darom()'>Save</button>
     <table id="table" border="1">
         <thead>
             <tr>
@@ -36,61 +35,53 @@
     </table>
     <br>
     <!-- <button onclick="editRow();">Edit Row</button> -->
-    <!-- <p id="demo"> </p> -->
+    <p id="demo"> </p>
 
     <script>
-        
-        function darom() {
-           
-        
+        var i=0;
+        function darom() {         
             auto = [
-
             ];
-            auto[0]=[];
-            
-            var tekstas = '';
-            var i=0;
+            auto[i]=[];            
+            var tekstas = '';            
             // console.log(auto[i][1]);
             
             var m = document.getElementById('inputm').value;
             var n = document.getElementById('inputn').value;
             var k = document.getElementById('inputk').value;
             var l = document.getElementById('inputl').value;
-            auto[i].push(m);
-            auto[i].push(n);
-            auto[i].push(k);
-            auto[i].push(l);
+            auto[i][0]=m;
+            auto[i][1]=n;
+            auto[i][2]=k;
+            auto[i][3]=l;
+            // auto[i][0].push(m);
+            // auto[i][1].push(n);
+            // auto[i][2].push(k);
+            // auto[i][3].push(l);
             tekstas = '<tr>' +
                 stulpelis(auto[i][0]) +
                 stulpelis(auto[i][1]) +
                 stulpelis(auto[i][2]) +
                 stulpelis(auto[i][3]) +
-                stulpelis(auto[i][2] / auto[i][3] * 3.6) + '<td>'+'<button id="but" onclick=edit()>asd</button>' +                                
+                stulpelis(auto[i][2] / auto[i][3] * 3.6) + '<td>'+'<button id="but" onclick=edit()>Edit</button>' +                                
                 '</tr>';
 
             document.querySelector('tbody').innerHTML += tekstas;
             
-            function edit(i) {
-                document.getElementById('inputm').value=auto[i][0];
-                document.getElementById('inputn').value=auto[i][1];
-                document.getElementById('inputk').value=auto[i][2];
-                document.getElementById('inputl').value=auto[i][3];
-            }
+            
 
             function stulpelis(reiksme) {
                 var td = '<td>' + reiksme + '</td>';
                 return td;                          
             i+=1;
             }
-            // document.getElementById("demo").innerHTML = m;
-            // var form = document.getElementById("forma");
-            //     form.reset();
-                // document.getElementById("forma").reset();
-                // document.getElementById('inputm').value=' ';
-                // document.getElementById('inputn').value=' ';
-                // document.getElementById('inputk').value=' ';
-                // document.getElementById('inputl').value=' ';
             }
+            // function edit() {
+            //     document.getElementById('inputm').value=auto[i][0];
+            //     document.getElementById('inputn').value=auto[i][1];
+            //     document.getElementById('inputk').value=auto[i][2];
+            //     document.getElementById('inputl').value=auto[i][3];                          
+            // }
         
     </script>
 </body>
